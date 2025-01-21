@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procesar archivo CSV</title>
+</head>
+<body>
+    <h1>Sube tu archivo CSV para procesar</h1>
+
+    <form method="POST" enctype="multipart/form-data" action="/process/">
+        <label for="start_row">Fila de inicio:</label>
+        <input type="number" id="start_row" name="start_row" required><br><br>
+
+        <label for="end_row">Fila de fin:</label>
+        <input type="number" id="end_row" name="end_row" required><br><br>
+
+        <label for="input_file">Selecciona el archivo CSV:</label>
+        <input type="file" id="input_file" name="input_file" required><br><br>
+
+        <label for="output_file">Nombre del archivo de salida:</label>
+        <input type="text" id="output_file" name="output_file" required><br><br>
+
+        <input type="submit" value="Procesar">
+    </form>
+
+    {% if output_path %}
+        <h3>Archivo procesado y guardado en: {{ output_path }}</h3>
+    {% endif %}
+</body>
+</html>
